@@ -1,0 +1,41 @@
+-
+	var verTag = "0.1.0"
+	var viewport = "width=device-width, viewport-fit=cover"
+		//- + ",height=device-height"
+		+ ",initial-scale=1.0"
+		+ ",maximum-scale=1.0"
+		+ ",minimum-scale=1.0"
+	var pageDisc = ""
+	var pageKeyw = "rvsbasic,typography"
+
+head
+	meta(charset="utf-8")
+	title= pageTitl
+	meta(name="title" content=pageTitl)
+	meta(name="description" content=pageDisc)
+	meta(name="keywords" content=pageKeyw)
+	meta(name="viewport" content=viewport)
+
+	meta(name="apple-mobile-web-app-capable" content="yes")
+	meta(name="apple-mobile-web-app-status-bar-style" content="default")
+	meta(name="format-detection" content="telephone=no")
+	meta(name="theme-color" content="#ffffff")
+	//- meta(name="apple-itunes-app" content="app-id=123456789")
+	meta(name="apple-mobile-web-app-title" content="RVS Basic Haha")
+	meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+	
+	//- iOS
+	//- link(rel="apple-touch-icon" href=`${assetsPath}assets/apple-touch-icon.png?v=${verTag}`)
+	//- link(rel="apple-touch-icon" sizes="152x152" href=`${assetsPath}assets/apple-touch-icon-ipad.png?v=${verTag}`)
+	//- link(rel="apple-touch-icon" sizes="180x180" href=`${assetsPath}assets/apple-touch-icon-iphone-retina.png?v=${verTag}`)
+	//- link(rel="apple-touch-icon" sizes="167x167" href=`${assetsPath}assets/apple-touch-icon-ipad-retina.png?v=${verTag}`)
+	//- Android
+	//- link(rel="icon" sizes="128x128" href=`${assetsPath}assets/android-touch-icon.png?v=${verTag}`)
+	//- link(rel="icon" sizes="192x192" href=`${assetsPath}assets/android-touch-icon-hd.png?v=${verTag}`)
+	
+	link(rel="shortcut icon" href=`${assetsPath}assets/favicon.ico?v=${verTag}`)
+	link(rel="stylesheet" href=`${assetsPath}assets/app.css?v=${verTag}`)
+	
+	block headScripts
+	
+	//- script(type="text/javascript" src=`${assetsPath}assets/vconsole.min.js?v=${verTag}`)

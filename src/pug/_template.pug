@@ -1,0 +1,34 @@
+doctype html
+
+block var
+	- var pageTitl
+	- var pageDisc
+	- var pageKeyw
+	- var bodyClass
+	- var bodyClassModifier
+	- var modalClassModifier
+	- var isStickyFooter
+
+- if (bodyClassModifier) bodyClassModifier = " " + bodyClassModifier
+
+html(lang="en")
+	block head
+		include _head
+	
+	body(class=(bodyClass + bodyClassModifier) data-root=assetsPath)
+		block bodyHeader
+		
+		block bodyMain
+			main(role="main" class=(isStickyFooter ? 'stickyFooter' : ''))
+				block mainHeader
+				block mainBody
+				block mainFooter
+		
+		block bodyFooter
+		
+		block dotTemplate
+		block dotTemplateGlobal
+		
+		block bodyScripts
+			//- script(type="text/javascript" src=`${assetsPath}assets/libs.js?v=${verTag}`)
+			script(type="text/javascript" src=`${assetsPath}assets/app.js?v=${verTag}`)
