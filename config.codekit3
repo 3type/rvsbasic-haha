@@ -31,6 +31,14 @@
       "oAP" : "\/docs\/assets\/RVSBasicVF.ttf",
       "oF" : 0
     },
+    "\/src\/assets\/RVSBasicVF.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 2,
+      "oAP" : "\/docs\/assets\/RVSBasicVF.woff2",
+      "oF" : 0
+    },
     "\/src\/javascript\/_libs.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -218,7 +226,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "logo-react",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 651187086.83317006
+    "lastBuiltDate" : 651203122.04213095
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -512,7 +520,7 @@
     "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.1%, last 2 versions, Firefox ESR, not dead",
-    "buildEnvironment" : 1,
+    "buildEnvironment" : 0,
     "buildFolderActive" : 1,
     "buildFolderName" : "docs",
     "cleanBuild" : 1,
@@ -657,7 +665,7 @@
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
     "environmentVariableEntries" : [
-      "NODE_ENV:::development"
+      "NODE_ENV:::production"
     ],
     "esLintConfigFileHandlingType" : 0,
     "esLintECMAVersion" : 7,
