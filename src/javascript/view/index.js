@@ -54,8 +54,8 @@ function volumeAudioProcess (event) {
 	var rms = Math.sqrt(sum / bufLength);
 	this.volume = Math.max(rms, this.volume * this.averaging);
 	
-	console.log('test');
-	console.log(rms, this.volume * this.averaging, this.volume);
+	// console.log('test');
+	// console.log(rms, this.volume * this.averaging, this.volume);
 }
 
 
@@ -87,24 +87,74 @@ $text.addEventListener('click', () => {
 			mediaStreamSource = audioContext.createMediaStreamSource(stream);
 			meter = createAudioMeter(audioContext);
 			mediaStreamSource.connect(meter);
-			console.log('4');
+			// console.log('4');
 			updateFVS();
 		});
 	}
-	
-	
 });
 
 let updateFVS = () => {
-	console.log(meter.volume);
+	// console.log(meter.volume);
 	const WDTH_LB = 50;
 	const WDTH_RATE = 5;
-	const SCALE_RATE = 5;
+	const SCALE_RATE = 2;
 	// textStyle.fontVariationSettings = '"wdth"' + 50 * (1 + 2.5 * meter.volume);
 	textStyle.fontVariationSettings = '"wdth"' + WDTH_LB * (1 + WDTH_RATE * meter.volume);
 	textStyle.transform       = 'translateY(-50%) scale(' + (1 + SCALE_RATE * meter.volume) + ')';
 	textStyle.webkitTransform = 'translateY(-50%) scale(' + (1 + SCALE_RATE * meter.volume) + ')';
 	requestAnimationFrame(updateFVS);
 };
+
+
+
+// Record caret position
+let caretPos = $text.innerHTML.length;
+let updateCaretPos = () => {
+	// Credit: https://stackoverflow.com/a/3976125
+	let sel = 0, range = 0;
+	let editableDiv = $text;
+	if (window.getSelection) {
+		sel = window.getSelection();
+		if (sel.rangeCount) {
+			range = sel.getRangeAt(0);
+			if (range.commonAncestorContainer.parentNode === editableDiv) {
+				caretPos = range.endOffset;
+			}
+		}
+	} else if (document.selection && document.selection.createRange) {
+		range = document.selection.createRange();
+		if (range.parentElement() === editableDiv) {
+			let tempEl = document.createElement("span");
+			editableDiv.insertBefore(tempEl, editableDiv.firstChild);
+			
+			let tempRange = range.duplicate();
+			tempRange.moveToElementText(tempEl);
+			tempRange.setEndPoint("EndToEnd", range);
+			caretPos = tempRange.text.length;
+		}
+	}
+	console.log(caretPos);
+};
+$text.addEventListener('mousedown', updateCaretPos);
+$text.addEventListener('mouseup',   updateCaretPos);
+$text.addEventListener('keydown',   updateCaretPos);
+$text.addEventListener('keyup',     updateCaretPos);
+
+// Insert clicked text into the caret position
+let $glyfList = doc.querySelector('.glyf-list');
+let insertChar = (char) => {
+	let str = $text.innerHTML;
+	$text.innerHTML = str.slice(0, caretPos) + char + str.slice(caretPos);
+	
+	// Update caretPos
+	caretPos += char.length;
+};
+$glyfList.addEventListener('click', (e) => {
+	let $target = e.target;
+	while (!$target.matches('.glyf-item') && !$target.matches('.glyf-list') && $target) {
+		$target = $target.parentElement;
+		insertChar($target.getAttribute('data-char'));
+	}
+});
 
 }

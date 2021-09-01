@@ -1,0 +1,27 @@
+-
+	var glyfMoji = [
+		'⁕', '🀥', '⚠', '⚡', '✨', '❤', '🌛', '🌞', '🌲', '🌹', '🐂', '🐎', '🐑', '🐔', '🐙', '🐛', '🐦', '🐭', '🐱', '🐶', '🐷', '🐸', '👀', '👆', '👇', '👈', '👉', '👋', '👽', '💣', '🕳', '🚪', '🦆', '🦚', '🧨', '⌣'
+	]
+	var glyfDlig = [
+		'含情脉脉',
+		'回头是岸',
+		'大可不必',
+		'天天开心',
+		'好梦',
+		'爱莫能助',
+		'紫气東來',
+		'莫名其妙',
+		'走火入魔',
+		'陌路相逢',
+		'高深莫测'
+	]
+	var i = 0, j = 0
+
+nav.glyf
+	.glyf-list
+		while i < glyfMoji.length
+			a.glyf-item(href="javascript:void(0)" data-char=glyfMoji[i])
+				i= glyfMoji[i++]
+		while j < glyfDlig.length
+			a.glyf-item(href="javascript:void(0)" data-char=glyfDlig[j])
+				i= glyfDlig[j++]
