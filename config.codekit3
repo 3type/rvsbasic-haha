@@ -212,6 +212,16 @@
       "oAP" : "\/docs\/pug\/index\/module\/body.html",
       "oF" : 0,
       "oS" : 0
+    },
+    "\/src\/pug\/index\/module\/nav.pug" : {
+      "cB" : 0,
+      "cOD" : 0,
+      "ft" : 512,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/pug\/index\/module\/nav.html",
+      "oF" : 0,
+      "oS" : 0
     }
   },
   "hooks" : [
@@ -226,7 +236,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "logo-react",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 651203122.04213095
+    "lastBuiltDate" : 652209185.23485506
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
