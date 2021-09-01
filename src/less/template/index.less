@@ -20,9 +20,11 @@
 	box-sizing: border-box;
 	font-family: "RVS Basic";
 	font-size: 72px;
-	line-height: 84px;
+	line-height: (72px * 1);
 	text-align: center;
 	font-variation-settings: "wdth" 88;
+	font-feature-settings: 'dlig';
+	white-space: pre-wrap;
 	
 	&:focus {
 		outline: none;
@@ -39,9 +41,83 @@
 	font-size: 12px;
 	line-height: 18px;
 	text-align: center;
+	user-select: none;
 	transition: opacity .5s ease-in-out;
 	
 	&.is-clicked {
 		opacity: 0;
 	}
+}
+
+.glyf {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 24px;
+}
+.glyf-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	max-width: ((28px + 4) * 18 + 16);
+	padding: 0 8px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+.glyf-item {
+	@color-default: @text-main;
+	z-index: @zIndex-1;
+	flex-grow: 0;
+	flex-shrink: 0;
+	display: block;
+	width: 28px;
+	height: 28px;
+	// border: 1px solid fadeout(@color-default, 85%);
+	border-radius: 4px;
+	box-shadow:
+		0 0px 1px 0 rgba(0,0,0,0.24),
+		0 0px 1px 0 rgba(0,0,0,0.12);
+	margin: 2px;
+	box-sizing: border-box;
+	background-color: @bg-main;
+	color: @color-default;
+	font-family: "RVS Basic";
+	font-size: 18px;
+	line-height: 24px;
+	font-variation-settings: "wdth" 88;
+	font-feature-settings: 'dlig';
+	text-align: center;
+	will-change: box-shadow, color, border-color, transform;
+	transition:
+		box-shadow   .15s ease-in-out,
+		color        .15s ease-in-out,
+		border-color .15s ease-in-out,
+		transform    .15s ease-in-out;
+	
+	.ua-Pointer &:hover,
+	&:active {
+		z-index: @zIndex-2;
+		box-shadow:
+			0 2px 6px 0 rgba(0,0,0,0.40),
+			0 2px 3px 0 rgba(0,0,0,0.20);
+		color: @text-main;
+		// border-color: fadeout(@text-main, 15%);
+		transform: translateY(-16px) scale(1.75);
+		transition:
+			box-shadow   .25s ease-in-out,
+			color        .25s ease-in-out,
+			border-color .25s ease-in-out,
+			transform    .25s ease-in-out;
+	}
+}
+.glyf-item i {
+	position: relative;
+	top: 3px;
+	display: inline-block;
+	// width: 100%;
+	// Fix for Safari
+	width: 1em;
+	font-style: normal;
+	user-select: none;
 }
