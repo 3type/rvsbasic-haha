@@ -1,3 +1,4 @@
+/* global randomColor */
 export default function () {
 
 let doc = document;
@@ -156,5 +157,25 @@ $glyfList.addEventListener('click', (e) => {
 		insertChar($target.getAttribute('data-char'));
 	}
 });
+
+
+
+// Random color
+const COLOR_DURATION = 5000;
+let changeColor = () => {
+	let bg = randomColor({
+		luminosity: 'light',
+		format: 'rgb'
+	});
+	let ink = randomColor({
+		luminosity: 'dark',
+		format: 'rgb'
+	});
+	
+	doc.documentElement.style.setProperty('--color-ink', ink);
+	doc.documentElement.style.setProperty('--color-bg',  bg);
+};
+changeColor();
+setInterval(changeColor, COLOR_DURATION);
 
 }

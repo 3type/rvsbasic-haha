@@ -61,6 +61,17 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/src\/javascript\/_vendor\/randomColor.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/docs\/javascript\/_vendor\/min\/randomColor-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/src\/javascript\/app.js" : {
       "bF" : 4,
       "ft" : 64,
@@ -236,7 +247,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "logo-react",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 652209185.23485506
+    "lastBuiltDate" : 652629514.74635994
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

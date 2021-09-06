@@ -1,3 +1,12 @@
+@color-duration: 4s;
+
+.index {
+	background-color: var(--color-bg);
+	color: var(--color-ink);
+	transition:
+		background-color @color-duration ease-in-out,
+		color            @color-duration ease-in-out;
+}
 .index main {
 	width: 100%;
 	height: 90%;
@@ -38,11 +47,14 @@
 	left: 0;
 	right: 0;
 	color: @theme-3type;
+	color: var(--color-ink);
 	font-size: 12px;
 	line-height: 18px;
 	text-align: center;
 	user-select: none;
-	transition: opacity .5s ease-in-out;
+	transition:
+		color @color-duration ease-in-out,
+		opacity .5s ease-in-out;
 	
 	&.is-clicked {
 		opacity: 0;
@@ -71,29 +83,35 @@
 	flex-grow: 0;
 	flex-shrink: 0;
 	display: block;
-	width: 28px;
-	height: 28px;
-	// border: 1px solid fadeout(@color-default, 85%);
-	border-radius: 4px;
+	// width: 28px;
+	// height: 28px;
+	width: 32px;
+	height: 32px;
+	border: 1px solid @text-main;
+	border-color: var(--color-ink);
+	margin: 0 0 -1px -1px;
+	
 	box-shadow:
 		0 0px 1px 0 rgba(0,0,0,0.24),
 		0 0px 1px 0 rgba(0,0,0,0.12);
-	margin: 2px;
 	box-sizing: border-box;
 	background-color: @bg-main;
 	color: @color-default;
+	background-color: var(--color-bg);
+	color: var(--color-ink);
 	font-family: "RVS Basic";
 	font-size: 18px;
 	line-height: 24px;
 	font-variation-settings: "wdth" 88;
 	font-feature-settings: 'dlig';
 	text-align: center;
-	will-change: box-shadow, color, border-color, transform;
+	will-change: box-shadow, color, border-color/* , transform */;
 	transition:
-		box-shadow   .15s ease-in-out,
-		color        .15s ease-in-out,
-		border-color .15s ease-in-out,
-		transform    .15s ease-in-out;
+		background-color @color-duration ease-in-out,
+		color            @color-duration ease-in-out,
+		border-color     @color-duration ease-in-out,
+		box-shadow .15s ease-in-out,
+		transform  .15s ease-in-out;
 	
 	.ua-Pointer &:hover,
 	&:active {
@@ -101,19 +119,21 @@
 		box-shadow:
 			0 2px 6px 0 rgba(0,0,0,0.40),
 			0 2px 3px 0 rgba(0,0,0,0.20);
-		color: @text-main;
+		// color: @text-main;
 		// border-color: fadeout(@text-main, 15%);
 		transform: translateY(-16px) scale(1.75);
 		transition:
-			box-shadow   .25s ease-in-out,
-			color        .25s ease-in-out,
-			border-color .25s ease-in-out,
-			transform    .25s ease-in-out;
+			background-color @color-duration ease-in-out,
+			color            @color-duration ease-in-out,
+			border-color     @color-duration ease-in-out,
+			box-shadow .25s ease-in-out,
+			transform  .25s ease-in-out;
 	}
 }
 .glyf-item i {
 	position: relative;
-	top: 3px;
+	// top: 3px;
+	top: 5px;
 	display: inline-block;
 	// width: 100%;
 	// Fix for Safari
