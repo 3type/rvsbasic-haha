@@ -1,3 +1,4 @@
+/* global randomColor */
 export default function () {
 
 let doc = document;
