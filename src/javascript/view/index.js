@@ -163,17 +163,21 @@ $glyfList.addEventListener('click', (e) => {
 // Random color
 const COLOR_DURATION = 5000;
 let changeColor = () => {
-	let bg = randomColor({
+	/* let bg = randomColor({
 		luminosity: 'light',
 		format: 'rgb'
 	});
 	let ink = randomColor({
 		luminosity: 'dark',
 		format: 'rgb'
+	}); */
+	let ink = randomColor({
+		luminosity: 'light',
+		format: 'rgb'
 	});
 	
 	doc.documentElement.style.setProperty('--color-ink', ink);
-	doc.documentElement.style.setProperty('--color-bg',  bg);
+	// doc.documentElement.style.setProperty('--color-bg',  bg);
 };
 changeColor();
 setInterval(changeColor, COLOR_DURATION);
