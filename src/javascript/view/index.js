@@ -162,13 +162,19 @@ $glyfList.addEventListener('click', (e) => {
 
 // Random color
 const COLOR_DURATION = 5000;
+const COLOR_BLACK    = '#000';
 let changeColor = () => {
-	let bg = randomColor({
+	/* let bg = randomColor({
 		luminosity: 'light',
 		format: 'rgb'
 	});
 	let ink = randomColor({
 		luminosity: 'dark',
+		format: 'rgb'
+	}); */
+	let bg = COLOR_BLACK;
+	let ink = randomColor({
+		luminosity: 'light',
 		format: 'rgb'
 	});
 	
