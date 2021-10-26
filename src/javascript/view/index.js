@@ -1,4 +1,4 @@
-/* global randomColor */
+/* global randomColor, autosize */
 export default function () {
 
 let doc = document;
