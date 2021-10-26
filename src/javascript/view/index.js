@@ -1,4 +1,4 @@
-/* global randomColor */
+/* global randomColor, autosize */
 export default function () {
 
 let doc = document;
@@ -109,7 +109,7 @@ let updateFVS = () => {
 
 
 // Record caret position
-let caretPos = $text.innerHTML.length;
+/* let caretPos = $text.innerHTML.length;
 let updateCaretPos = () => {
 	// Credit: https://stackoverflow.com/a/3976125
 	let sel = 0, range = 0;
@@ -139,16 +139,48 @@ let updateCaretPos = () => {
 $text.addEventListener('mousedown', updateCaretPos);
 $text.addEventListener('mouseup',   updateCaretPos);
 $text.addEventListener('keydown',   updateCaretPos);
+$text.addEventListener('keyup',     updateCaretPos); */
+
+// Auto resize for textarea
+autosize($text);
+// Pre-fill with `哈哈哈哈哈哈哈哈`
+$text.value = '哈哈哈哈哈哈哈哈';
+
+let caretPos = $text.value.length;
+let updateCaretPos = (e) => {
+	caretPos = e.target.selectionStart
+	console.log(caretPos);
+};
+$text.addEventListener('mousedown', updateCaretPos);
+$text.addEventListener('mouseup',   updateCaretPos);
+$text.addEventListener('keydown',   updateCaretPos);
 $text.addEventListener('keyup',     updateCaretPos);
 
 // Insert clicked text into the caret position
 let $glyfList = doc.querySelector('.glyf-list');
-let insertChar = (char) => {
+/* let insertChar = (char) => {
+	let $lastBr = $text.querySelector('br:first-child');
+	if ($lastBr) {
+		$lastBr.remove();
+	}
+	
 	let str = $text.innerHTML;
 	$text.innerHTML = str.slice(0, caretPos) + char + str.slice(caretPos);
 	
 	// Update caretPos
 	caretPos += char.length;
+}; */
+let insertChar = (char) => {
+	let str = $text.value;
+	$text.value = str.slice(0, caretPos) + char + str.slice(caretPos);
+	
+	// Update caretPos
+	caretPos += char.length;
+	
+	// Re-focus
+	$text.focus();
+	$text.selectionStart = caretPos;
+	
 };
 $glyfList.addEventListener('click', (e) => {
 	let $target = e.target;
