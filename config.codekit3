@@ -9,6 +9,12 @@
   ],
   "creatorBuild" : "34127",
   "files" : {
+    "\/docs" : {
+      "ft" : 65536,
+      "oA" : 1,
+      "oAP" : "\/docs\/docs",
+      "oF" : 0
+    },
     "\/src\/assets\/favicon.ico" : {
       "cB" : 0,
       "ft" : 8192,
@@ -252,7 +258,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "logo-react",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 656938680.00732994
+    "lastBuiltDate" : 656939907.36588395
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
