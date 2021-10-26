@@ -157,7 +157,8 @@ $text.addEventListener('keydown',   updateCaretPos);
 $text.addEventListener('keyup',     updateCaretPos);
 
 // Insert clicked text into the caret position
-let $glyfList = doc.querySelector('.glyf-list');
+// let $glyfList = doc.querySelector('.glyf-list');
+let $allGlyfItems = doc.querySelectorAll('.glyf-item');
 /* let insertChar = (char) => {
 	let $lastBr = $text.querySelector('br:first-child');
 	if ($lastBr) {
@@ -182,14 +183,18 @@ let insertChar = (char) => {
 	// $text.selectionStart = caretPos;
 	
 };
-$glyfList.addEventListener('click', (e) => {
+/* $glyfList.addEventListener('click', (e) => {
 	let $target = e.target;
 	while (!$target.matches('.glyf-item') && !$target.matches('.glyf-list') && $target) {
 		$target = $target.parentElement;
 		insertChar($target.getAttribute('data-char'));
 	}
-});
-
+}); */
+for (let i = 0; i < $allGlyfItems.length; i++) {
+	$allGlyfItems[i].addEventListener('click', () => {
+		insertChar($allGlyfItems[i].getAttribute('data-char'));
+	});
+}
 
 
 // Random color
