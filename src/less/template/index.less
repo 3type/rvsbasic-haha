@@ -44,6 +44,8 @@
 	position: fixed;
 	z-index: @zIndex-1;
 	top: 8px;
+	top: calc(8px + constant(safe-area-inset-top));
+	top: calc(8px + env(safe-area-inset-top));
 	left: 0;
 	right: 0;
 	color: @theme-3type;
