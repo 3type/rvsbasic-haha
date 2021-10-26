@@ -178,8 +178,8 @@ let insertChar = (char) => {
 	caretPos += char.length;
 	
 	// Re-focus
-	$text.focus();
-	$text.selectionStart = caretPos;
+	// $text.focus();
+	// $text.selectionStart = caretPos;
 	
 };
 $glyfList.addEventListener('click', (e) => {
