@@ -86,7 +86,7 @@ $text.addEventListener('click', () => {
 			audio: true
 		}).then((stream) => {
 			mediaStreamSource = audioContext.createMediaStreamSource(stream);
-			meter = createAudioMeter(audioContext);
+			meter = createAudioMeter(audioContext, 0.98, 0.98, 750);
 			mediaStreamSource.connect(meter);
 			// console.log('4');
 			updateFVS();
