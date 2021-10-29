@@ -97,8 +97,8 @@ $text.addEventListener('click', () => {
 let updateFVS = () => {
 	// console.log(meter.volume);
 	const WDTH_LB = 50;
-	const WDTH_RATE = 5;
-	const SCALE_RATE = 2;
+	const WDTH_RATE = 6;
+	const SCALE_RATE = 3;
 	// textStyle.fontVariationSettings = '"wdth"' + 50 * (1 + 2.5 * meter.volume);
 	textStyle.fontVariationSettings = '"wdth"' + WDTH_LB * (1 + WDTH_RATE * meter.volume);
 	textStyle.transform       = 'translateY(-50%) scale(' + (1 + SCALE_RATE * meter.volume) + ')';
