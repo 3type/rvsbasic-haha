@@ -95,6 +95,7 @@
 	}
 }
 
+@glyf-size: 48px;
 .glyf {
 	position: fixed;
 	left: 0;
@@ -106,7 +107,7 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	width: 100%;
-	max-width: ((28px + 4) * 18 + 16);
+	max-width: (@glyf-size * 18 + 16);
 	padding: 0 8px;
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -119,8 +120,8 @@
 	display: block;
 	// width: 28px;
 	// height: 28px;
-	width: 32px;
-	height: 32px;
+	width: @glyf-size;
+	height: @glyf-size;
 	border: 1px solid @text-main;
 	border-color: var(--color-ink);
 	margin: 0 0 -1px -1px;
@@ -134,8 +135,8 @@
 	background-color: var(--color-bg);
 	color: var(--color-ink);
 	font-family: "RVS Basic";
-	font-size: 18px;
-	line-height: 24px;
+	font-size: 20px;
+	line-height: 32px;
 	font-variation-settings: "wdth" 88;
 	font-feature-settings: 'dlig';
 	text-align: center;
@@ -166,12 +167,30 @@
 }
 .glyf-item i {
 	position: relative;
-	// top: 3px;
-	top: 5px;
+	top: ((@glyf-size - 32)/2 + 2);
 	display: inline-block;
+	
 	// width: 100%;
 	// Fix for Safari
 	width: 1em;
+	
 	font-style: normal;
 	user-select: none;
+}
+
+@media (max-width: 480px) {
+	@glyf-size: 32px;
+	
+	.glyf-list {
+		max-width: (@glyf-size * 18 + 16);
+	}
+	.glyf-item {
+		width: @glyf-size;
+		height: @glyf-size;
+		font-size: 18px;
+		line-height: 24px;
+	}
+	.glyf-item i {
+		top: ((@glyf-size - 24)/2 + 1);
+	}
 }
