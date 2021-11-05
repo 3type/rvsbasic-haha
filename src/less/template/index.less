@@ -43,7 +43,8 @@
 .text {
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%) translateY(72px);
+	transform: translateY(-50%)/*  translateY(72px) */;
+	transform-origin: center;
 	width: 100%;
 	max-height: 100%;
 	// overflow: scroll-y;
@@ -62,13 +63,21 @@
 	resize: none;
 	transition:
 		background-color @color-duration ease-in-out,
-		color            @color-duration ease-in-out;
+		color            @color-duration ease-in-out,
+		transform                   0.1s ease-in-out;
 	
 	&:focus {
 		outline: none;
 	}
 	&::placeholder {
 		color: var(--color-ink);
+	}
+	
+	@media (min-width: 1400px) {
+		height: 120px;
+		font-size: 120px;
+		line-height: 120px;
+		transform-origin: center 80px;
 	}
 }
 
